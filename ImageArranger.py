@@ -6,7 +6,7 @@ from PIL.ExifTags import TAGS
 from datetime import datetime
 
 def get_image_date(file_path):
-    """이미지의 촬영 날짜(EXIF) 또는 파일 수정 날짜 반환"""
+    #이미지의 촬영 날짜(EXIF) 또는 파일 수정 날짜 반환
     try:
         image = Image.open(file_path)
         exif_data = image._getexif()
@@ -20,7 +20,7 @@ def get_image_date(file_path):
     return datetime.fromtimestamp(os.path.getmtime(file_path)).strftime("[%Y년 %m월 %d일]")
 
 def organize_images_by_date(folder_path):
-    """선택한 폴더 내 이미지를 날짜별 폴더로 정리"""
+    #선택한 폴더 내 이미지를 날짜별 폴더로 정리
     supported_ext = [".jpg", ".jpeg", ".png", ".heic", ".bmp"]
     files = [f for f in os.listdir(folder_path) if os.path.splitext(f)[1].lower() in supported_ext]
 
@@ -47,3 +47,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
